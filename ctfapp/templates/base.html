@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% block head %}
+	<meta charset="utf-8">
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+	<link rel="icon" type="image/png" href="">
+	{% endblock %}
+</head>
+<body>
+	<div class="container">
+		<div class="five columns header">
+			<img src="{{ url_for('static', filename='img/coin.png') }}">
+			<h1>CthCoin</h1>
+		</div>
+		
+		<div id="nav" class="seven columns">
+			<ul>
+				<li><a href="{{ url_for('index') }}">Index</a></li>
+				<li><a href="{{ url_for('shop') }}">Shop</a></li>
+				{% if current_user.is_authenticated %}
+				<li><a href="{{ url_for('profile') }}">Profile</a></li>
+				<li><a href="{{ url_for('wallet') }}">Wallet</a></li>
+				<li></li>
+				<li><a href="{{ url_for('logout') }}">Logout</a></li>
+				{% else %}
+				<li><a href="{{ url_for('login') }}">Login</a></li>
+				<li><a href="{{ url_for('register') }}">Register</a></li>
+				{% endif %}
+			</ul>
+		</div>
+		<div class="twelve columns blackblock">
+		</div>
+		<div class="twelve columns">
+		{% with messages = get_flashed_messages() %}
+        	{% if messages %}
+				{% for message in messages %}
+				<div class="alert alert-success">
+				 	<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+					{{ message }}
+				</div>
+				{% endfor %}
+			{% endif %}
+      	{% endwith %}
+      	<div>
+		{% block content %}{% endblock %}
+		<div class="twelve columns blackblockb">
+		</div>
+	</div>
+</body>

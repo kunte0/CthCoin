@@ -1,0 +1,7 @@
+Flask==0.11.1
+Flask-SQLAlchemy==2.1
+Flask-WTF==0.13.1
+flask_bcrypt==0.7.1
+Flask-Login==0.3.2
+ecdsa==0.13
+gunicorn

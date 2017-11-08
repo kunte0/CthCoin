@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Shop{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+<div id="welcome" class="twelve columns">
+	<h2>Buy</h2>
+	Buy {{ item[1] }}.<br>
+	You already sent {{ send }} of {{ item[2] }} Coins.
+	<form method=post action="">
+
+		{{ form.coin.label }}
+		{{ form.coin(class_="u-full-width", rows="20") }}
+		{% if form.coin.errors %}
+		{% for error in form.coin.errors %}
+		<div class="alert alert-error">
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+			{{ error }}
+		</div>
+		{% endfor %}
+		{% endif %}
+		
+		<label></label>
+		<input type=submit class="button-primary" value=Buy>
+	</form>
+</div>
+{% endblock %}

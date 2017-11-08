@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Shop{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+<div id="welcome" class="twelve columns">
+	<h2>Shop</h2>
+	<p>We offer a range of official products, feel free to look around and be sure to come back regularly as we'll be adding more stuff in the future.</p>
+</div>
+<div class="row">
+	<div class="one-third column feature">
+		<h3>An AWSOME Gif</h3>
+		<div class=block>
+		<h4>GIF</h4>
+		</div>
+
+		<a href="{{ url_for('buy', id=0) }}">
+			<button class="u-full-width">Buy for 5 CthCoins</button>
+		</a>
+	</div>
+	<div class="one-third column feature">
+		<h3>Useless Stuff</h3>
+		<div class=block>
+		<h4>STUFF</h4>
+		</div>
+
+		<a href="{{ url_for('buy', id=1) }}">
+			<button class="u-full-width">Buy for 30 CthCoins</button>
+		</a>
+	</div>
+	<div class="one-third column feature">
+		<h3>The FLAG</h3>
+		<div class=block>
+		<h4>FLAG</h4>
+		</div>
+
+		<a href="{{ url_for('buy', id=2) }}">
+			<button class="u-full-width">Buy for 120 CthCoins</button>
+		</a>
+	</div>
+
+</div>
+{% endblock %}
+

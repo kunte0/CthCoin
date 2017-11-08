@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div id="welcome" class="twelve columns">
+  <h2>Profile</h2>
+  <p>Hello, {{ current_user.username }}!</p>
+  <p>Check out your <a href="{{ url_for('wallet') }}">Wallet</a> and buy some cool stuff in the <a href="{{ url_for('shop') }}">Shop</a>. All with our new innovativ CthCoin.</p>
+
+  <p>If you need more Coins, click here:</p>
+  <div class="twelve columns hover14">
+  	<figure><img onclick="alert('Under construction, come back later.')" src="{{ url_for('static', filename='img/buy.png') }}"></figure>
+  </div>
+
+</div>
+{% endblock %}

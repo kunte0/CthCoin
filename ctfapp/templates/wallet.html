@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Wallet{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+<div id="welcome" class="twelve columns">
+	<h2>Wallet</h2>
+	<p>Your Wallet holds all your coins. Coins can only be spend ones.</p>
+	<div class="twelve columns">
+	<form>
+		{% for c in coins %}
+		<textarea class="u-full-width" id="coin" name="coin">{{ c.coin }}</textarea>
+		{% endfor %}
+	</form>
+	</div>
+
+</div>
+{% endblock %}

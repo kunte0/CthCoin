@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Debug{% endblock %}
+
+{% block content %}
+<div id="welcome" class="twelve columns">
+  <h2>Debug</h2>
+  <p>List of last 50 SPEND Coins. </p>
+  {% for s in spend %}
+ 	<kbd id="md5">{{ s.md5 }}</kbd><br>
+{% endfor %}
+<div>
+<!--
+Its ECDSA
+sort_keys=True
+SIG < AM, CU, MN, NC, OW, PK, TS
+MD5 < AM, CU, MN, NC, OW, PK, SIG, TS
+-->
+{% endblock %}
